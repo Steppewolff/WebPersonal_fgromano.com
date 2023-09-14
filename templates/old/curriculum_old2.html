@@ -1,0 +1,20 @@
+{% block head %}
+
+<!-- Passing variables to main.js -->    
+<script>
+    var sum_year = '{{sum_year|tojson}}';
+</script>
+
+{% endblock %}
+
+{% extends 'layout.html' %}
+
+<!--Header-->
+{% block header %}
+    <p class=folder>Curriculum</p>  
+{% endblock %}
+
+{% block main %}
+
+
+{% endblock %}

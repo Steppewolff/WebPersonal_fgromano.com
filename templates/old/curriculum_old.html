@@ -1,0 +1,131 @@
+{% block head %}
+
+<!-- Passing variables to main.js -->    
+<script>
+    var sum_year = '{{sum_year|tojson}}';
+</script>
+
+{% endblock %}
+
+{% extends 'layout.html' %}
+
+<!--Header-->
+{% block header %}
+    <p class=folder>Curriculum</p>  
+{% endblock %}
+
+{% block main %}
+    <div class=barratemporal>
+        <br>
+            <div class=contenido_barratemporal>Resumen Temporal</div>
+        <br>
+    </div>
+
+    <div class=container_barra>
+        <ul class=barra>
+        {% for i in range(0, len) %}
+            <li class=year_todas id=year{{years[i]}}> {{years[i]}} </li>
+        {% endfor %}
+        </ul>
+        <div class=display_content>
+            <div class=contenido_year id=pruebajs>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container cv">
+        <div class="row">
+<!-- Trigger de los modales CVN y CVA--> 
+            <div class="col-md-4 cont cont-1">CV científico<br>
+                <span>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalCVN">Ver Curriculum CVN</button>
+                </span>
+                <span>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalCVA">Ver Curriculum CVA</button>
+                </span>
+            </div>
+<!-- Trigger de los modales CV desarrollo y General-->
+            <div class="col-md-4 cont cont-2">CV desarrollo<br> 
+                <span>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalCVDesarrollo">Ver Curriculum Desarrollo</button>
+                </span>
+            </div>
+            <div class="col-md-4 cont cont-3">CV general<br>
+                <span>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalCVGeneral">Ver Curriculum General</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal CVN-->
+    <div id="myModalCVN" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">CV Normalizado</h4>
+                </div>
+                <div class="modal-body">
+                    <embed class="visorpdf" allowfullscreen="true" src=/static/pdf/cvn_FernandoGomezRomano260220.pdf title="CVN Fernando Gomez Romano">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal CVA-->
+    <div id="myModalCVA" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">CV Normalizado abreviado</h4>
+                </div>
+                <div class="modal-body">
+                    <embed class="visorpdf" allowfullscreen="true" src=/static/pdf/cva_FernandoGomezRomano_260220.pdf title="CVA Fernando Gomez Romano">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal Desarrollo-->
+    <div id="myModalCVDesarrollo" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">CV Desarrollo</h4>
+                </div>
+                <div class="modal-body">
+                    <embed class="visorpdf" allowfullscreen="true" src=/static/pdf/cvdes_FernandoGomezRomano_260220.pdf title="CV Desarrollo Fernando Gomez Romano">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal General-->
+    <div id="myModalCVGeneral" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">CV General</h4>
+                </div>
+                <div class="modal-body">
+                    <embed class="visorpdf" allowfullscreen="true" src=/static/pdf/cvgen_FernandoGomezRomano_260220.pdf title="CV General Fernando Gomez Romano">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+<!--Header-->
+{% block header %}
+    <p class=folder>Login</p>
+{% endblock %}
+
+{% block main %}
+    <div class="formulario">
+        <form method="POST">
+            <label id='user_label' for='user'>Nombre de usuario:</legend><br/>
+            <input id='user' type="text" name=user_field placeholder="Introduzca su usuario">
+            <label id='pwd_label' for='pwd'>Contraseña:</legend><br/>
+            <input id='pwd' type="text" name=pwd_field placeholder="Introduzca su contraseña">
+            <button class="btn btn-secondary" type=submit>Entrar</button>
+        </form>
+    </div>
+{% endblock %}

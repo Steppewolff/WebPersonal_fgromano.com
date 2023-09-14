@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+    <div>
+        <form method="POST">
+            <label for='comments'>Introduzca su comentario aquí:</label><br>
+            <input id='comments' name='comments type='text'' 
+                    placeholder="Deje su opinión sobre la App en este espacio" maxlength='100'><br>
+            <button class="btn btn-secondary" type=submit>Enviar comentario</button>
+        </form>
+    </div>
+{% endblock %}

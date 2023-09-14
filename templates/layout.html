@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebApp Personal-Fernando Gómez Romano</title>
+
+<!-- Icono favicon -->
+    <link rel="shortcut icon" href="./static/img/logo_fgromano.ico">
+
+<!-- Local stylesheets CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> -->
+    
+<!-- Fuentes -->
+    <link defer href="//db.onlinewebfonts.com/c/f2ecc6ef740fcf60de095b0b087dd58d?family=OCR+A+Extended" rel="stylesheet" type="text/css"/>
+
+<!-- Local JavaScript library-->
+    <script src="{{ url_for('static', filename='js/scripts/main.js') }}"></script>
+
+<!-- Own JavaScript libraries -->
+<!-- <script defer src=/static/js/scripts/main.js></script> -->
+
+<!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+ 
+<!-- Latest compiled JavaScript -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- Latest compiled and minified Bootstrap -->
+    <link defer rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+<!-- Local stylesheets CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" />    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a href='/WebPersonal/'>
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text text-home">
+                        WebApp de Fernando
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav">
+                <a href='/WebPersonal/curriculum'>
+                    <i class="fa fa-file-text-o fa-2x"></i>
+                    <span class="nav-text">
+                        Curriculum
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav">
+                <a href='/WebPersonal/portfolio'>
+                <i class="fa fa-folder-open fa-2x"></i>
+                    <span class="nav-text">
+                        Portfolio
+                    </span>
+                </a>
+                
+            </li>
+            <li class="has-subnav">
+                <a href='/WebPersonal/hobbies'>
+                <i class="fa fa-smile-o fa-2x"></i>
+                    <span class="nav-text">
+                        Hobbies
+                    </span>
+                </a>
+            
+            </li>
+            <li>
+                <a href='/WebPersonal/enlaces'>
+                    <i class="fa fa-code fa-2x"></i>
+                    <span class="nav-text">
+                        Enlaces
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href=/WebPersonal/recomendaciones>
+                    <i class="fa fa-compass fa-2x"></i>
+                    <span class="nav-text">
+                        Recomendaciones
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href=/WebPersonal/redes>
+                    <i class="fa fa-linkedin-square fa-2x"></i>
+                    <span class="nav-text">
+                        Redes sociales
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href=/WebPersonal/contacto>
+                    <i class="fa fa-comment-o fa-2x"></i>
+                    <span class="nav-text">
+                        Contacto
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="logout">
+            <li>
+            <a href=/WebPersonal/login>
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Login
+                    </span>
+                </a>
+            </li>  
+        </ul>
+    </nav>
+    <!--Header-->
+    <header>
+        {% block header %}{% endblock %}
+        <p id=titulo>Web de Fernando</p>
+    </header>
+    <!--Main-->
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+    <!--Footer-->
+    <footer>
+        <div class="sign nombre">
+            <p>Web desarrollada por Fernando Gómez Romano <span class="copy-left">©</span></p>
+        </div>
+        <a href=/WebPersonal/mapaweb><i class="fa fa-sitemap"></i></a>
+        <div class="sign webmap">
+            Mapa del sitio web
+        </div>
+        {% block footer %}{% endblock %}
+    </footer>
+
+</body>
+</html>
