@@ -1,5 +1,11 @@
 {% extends 'layout.html' %}
 
+<!-- Head -->
+{% block head %}
+    <!-- Local JavaScript library-->
+    <script src="{{ url_for('static', filename='js/scripts/portfolio.js') }}"></script>
+{% endblock %}
+
 <!--Header-->
 {% block header %}
     <p class=folder>Portfolio</p>
@@ -12,19 +18,40 @@
 <div class="contenedor" id="portfolio_programación"></div>
 <div class="contenedor" id="portfolio_fotografía"></div>
 <div class="contenedor" id="portfolio_dron"></div> -->
-<div class="container">
+
+<div class="container portfolio">
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+            <a class="nav-item nav-link show" id="nav-inv-tab" data-toggle="tab" href="#nav-inv" role="tab" aria-controls="nav-inv" aria-selected="false">Investigación</a>
+            <a class="nav-item nav-link" id="nav-des-tab" data-toggle="tab" href="#nav-des" role="tab" aria-controls="nav-des" aria-selected="false">Desarrollo</a>
+            <a class="nav-item nav-link" id="nav-fot-tab" data-toggle="tab" href="#nav-fot" role="tab" aria-controls="nav-fot" aria-selected="false">Fotografía</a>
+            <a class="nav-item nav-link" id="nav-dron-tab" data-toggle="tab" href="#nav-dron" role="tab" aria-controls="nav-dron" aria-selected="false">Dron</a>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">PRUEBA CONTENIDO</div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+        <div class="tab-pane fade" id="nav-inv" role="tabpanel" aria-labelledby="nav-home-tab">PRUEBA CONTENIDO</div>
+        <div class="tab-pane fade" id="nav-des" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+        <div class="tab-pane fade" id="nav-fot" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+        <div class="tab-pane fade" id="nav-dron" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
     </div>
 </div>
+
+<!-- 
+<div class="container portfolio">
+    <nav class="navbar-expand-lg navbar-dark bg-dark">
+        <ul class="nav nav-pills" id="nav-tab" role="tablist">
+            <li class="nav-item"><a class="nav-link active" id="nav-inv-tab" data-toggle="tab" href="#nav-inv" role="tab" aria-controls="nav-inv" aria-selected="false">Investigación</a></li>
+            <li class="nav-item"><a class="nav-link" id="nav-des-tab" data-toggle="tab" href="#nav-des" role="tab" aria-controls="nav-des" aria-selected="false">Desarrollo</a></li>
+            <li class="nav-item"><a class="nav-link" id="nav-fot-tab" data-toggle="tab" href="#nav-fot" role="tab" aria-controls="nav-fot" aria-selected="false">Fotografía</a></li>
+            <li class="nav-item"><a class="nav-link" id="nav-dron-tab" data-toggle="tab" href="#nav-dron" role="tab" aria-controls="nav-dron" aria-selected="false">Dron</a></li>
+        </ul>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade active" id="nav-inv" role="tabpanel" aria-labelledby="nav-home-tab">PRUEBA CONTENIDO</div>
+        <div class="tab-pane fade" id="nav-des" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+        <div class="tab-pane fade" id="nav-fot" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+        <div class="tab-pane fade" id="nav-dron" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+    </div>
+</div> -->
 
 {% endblock %}

@@ -1,18 +1,12 @@
 //Load education and experience records when /curriculum page is loaded
+window.addEventListener("load", educ_expert);
 window.addEventListener("load", press);
 
-// function prueba(){
-//     var year = document.getElementById('years').value;
-//     var x = document.getElementById('years').value;
-//     document.getElementById("prueba").innerHTML = '*****************PRUEBA OK ' + year + x;
-// }
-
 function press(){
-    document.getElementById('years').addEventListener("click", educ_expert)
+    document.getElementById('years').addEventListener("change", educ_expert)
 }
 
-async function educ_expert(){  
-    document.getElementById('prueba').innerHTML = '*****************PRUEBA 2OK ';
+async function educ_expert(){
     //Función fetch que llama a /auth de flask_JWT en la API para obtener token
     async function postAuth(credentials){
         try{
@@ -22,7 +16,7 @@ async function educ_expert(){
                 headers: {
                     "Content-Type": "application/json",
                     'Accept': '*',
-                    'Access-Control-Allow-Origin': 'https://fgromano.com',
+                    'Access-Control-Allow-Origin': '*',
                     'Accept-Encoding': 'gzip, deflate, br',
                     'Connection': 'keep-alive'}
             })
@@ -31,7 +25,6 @@ async function educ_expert(){
             console.log('Headers', data.access_token)
             return data.access_token;
             //Se extrae el token en string para usar en siguientes peticiones a la API
-            // token = response['access_token']
         }catch(error){
             console.error("Error:", error);
         }
@@ -55,11 +48,10 @@ async function educ_expert(){
             console.log("Token dentro", token);
             let response = await fetch(`https://fgromano.com/wp_api/resumee/`+ year.toString(), {
                 method: "GET",
-                // body: JSON.stringify(credentials),
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': '*',
-                    'Access-Control-Allow-Origin': 'https://fgromano.com',
+                    'Access-Control-Allow-Origin': '*',
                     'Accept-Encoding': 'gzip, deflate, br',
                     'Connection': 'keep-alive',
                     'Authorization': 'JWT ' + token
@@ -68,12 +60,31 @@ async function educ_expert(){
 
             response = await response.json();
             console.log("Success experience:", response);
+            return response;
         }catch(error){
             console.error("Error:", error);
         }
     }
 
-    //Función fetch que llama a API para obtener datos de experiencia
+    let respuesta_exp = await get_experience(token);
+
+    async function print_exp(resp, element_id){
+        while(document.getElementById(element_id).lastChild) {
+            document.getElementById(element_id).innerHTML = "";
+        }
+        let ul = document.createElement("ul");
+        ul.setAttribute('class', 'lista exp')
+        document.getElementById(element_id).appendChild(ul);
+        for (let line in resp){
+            let li = document.createElement('li');
+            let show = resp[line].puesto + " en " + resp[line].empresa + " durante " + resp[line].duracion + " año/s";
+            li.innerHTML = show;
+            ul.appendChild(li);
+        }
+    }
+
+    print_exp(respuesta_exp, 'cont_exp');
+
     async function get_education(token){
         try{
             var year = document.getElementById('years').value;
@@ -81,7 +92,6 @@ async function educ_expert(){
             console.log("Token dentro", token);
             let response = await fetch(`https://fgromano.com/wp_api/education/`+ year.toString(), {
                 method: "GET",
-                // body: JSON.stringify(credentials),
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': '*',
@@ -94,20 +104,31 @@ async function educ_expert(){
 
             response = await response.json();
             console.log("Success experience:", response);
+            return response;
         }catch(error){
             console.error("Error:", error);
         }
     }
 
-    let respuesta_exp = await get_experience(token);
-    console.log('Respuesta: ', respuesta_exp)
+    var respuesta_educ = await get_education(token);
 
-    let show = respuesta_exp["fecha_final"] + " - " + respuesta_exp["puesto"] + " - " + respuesta_exp["empresa"] + " - " + respuesta_exp["duracion"];
-    document.getElementById('cont_exp').innerHTML = show
+    async function print_educ(resp, element_id){
+        while(document.getElementById(element_id).lastChild) {
+            document.getElementById(element_id).innerHTML = "";
+        }
+        let ul = document.createElement('ul');
+        ul.setAttribute('class', 'lista educ')
+        document.getElementById(element_id).appendChild(ul);
+        while(ul.lastElementChild) {
+            ul.removeChild(ul.lastElementChild);
+        }
+        for (let line in resp){
+            let li = document.createElement('li');
+            let show = resp[line].titulo + " en " + resp[line].centro + " durante " + resp[line].duracion + " año/s";
+            li.innerHTML = show;
+            ul.appendChild(li);
+        }
+    }
 
-    let respuesta_educ = await get_education(token);
-    console.log('Respuesta: ', respuesta_educ)
-
-    show = respuesta_educ["fecha_final"] + " - " + respuesta_exp["titulo"] + " - " + respuesta_exp["duracion"];
-    document.getElementById('cont_educ')
+    print_educ(respuesta_educ, 'cont_educ');
 }

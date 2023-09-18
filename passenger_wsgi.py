@@ -123,7 +123,7 @@ def formulario():
         comentario = request.form['comments']
 
 #Lanzamiento del programa (en servidor local/en servidor remoto), se deja comentada la que no se use
-#if __name__ == "__main__":
+# if __name__ == "__main__":
 #    port = int(os.environ.get("PORT", 5100))
 #    app.run(host = '0.0.0.0', port = port, debug = True)
 

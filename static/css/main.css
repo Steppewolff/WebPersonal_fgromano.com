@@ -158,6 +158,10 @@ main .container{
   padding-left: 70px;
 }
 
+main .container .portfolio{
+  position: absolute;
+}
+
 main .cv{
   height: 50%;
   width: 90%;
@@ -312,14 +316,6 @@ main .col-md-4{
   margin: 1em;
 }
 
-/* #education{
-  float: left;
-}
-
-#experience{
-  float: right;
-} */
-
 .year_selector{
   display: flex;
   flex-wrap: wrap;
@@ -355,7 +351,6 @@ main .col-md-4{
 }
 
 .modal{
-  /* margin-left: 30px; */
   padding-left: 70px;
   height: 100%;
   width: 100%;
@@ -542,7 +537,7 @@ a:hover,a:focus {
 text-decoration:none;
 }
 
-nav {
+nav { 
 -webkit-user-select:none;
 -moz-user-select:none;
 -ms-user-select:none;
@@ -555,10 +550,79 @@ outline:0;
 margin:0;
 padding:0;
 }
+
+/*Arreglos para las pestañas de la web portfolio, alternativas a Bootstrap*/
+
+.nav-item{
+  font-size: 2em;
+  padding: 0.5em 1em 0.5em 1em;
+  text-align: center;
+  border: 1px #e5e5e5;
+  border-bottom: 0;
+  border-style: solid;
+  color: #202020;
+}
+
+.show{
+    position: relative;
+    bottom: -1px;
+    background-color: #202020;
+    border-bottom: 1px #202020;
+    color: #e5e5e5;
+    border-style: solid;
+    z-index: 1000;
+}
+
+.nav-item:hover{
+  position: relative;
+  bottom: -1px;
+  background-color: #202020;
+  border-bottom: 1px #202020;
+  color: #e5e5e5;
+  border-style: solid;
+}
+
+.nav-item:focus{
+  position: relative;
+  bottom: -1px;
+  color: #e5e5e5;
+  background-color: #202020;
+  border-bottom: 1px #202020;
+  border-style: solid;
+}
+
+.nav-tabs{
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+#nav-tab{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.tab-content{
+  height: 100%;
+  width: 100%;
+}
+
+.tab-pane{
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.lista {
+  list-style-type: square;
+}
+
 .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
 color:#fff;
 background-color:#5fa2db;
 }
+
 .area {
 float: left;
 background: #e2e2e2;
